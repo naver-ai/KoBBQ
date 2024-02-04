@@ -1,1 +1,1 @@
-# KoBBQ-code
+# KoBBQ: Korean Bias Benchmark for Question Answering
