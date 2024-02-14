@@ -1,6 +1,13 @@
 # Evaluation on KoBBQ
 
 ## Prompt
+| prompt id | prompt | unknown |
+|:---------:|--------|:-------:|
+| 1 | 주어진 맥락을 천천히 읽고, 질문에 대한 적절한 정답을 A, B, C 중에 골라 알파벳 하나로 답하시오.<br><br>맥락: {context}<br>질문: {question}<br>A: {a}<br>B: {b}<br>C: {c}<br>정답: | 알 수 없음 |
+| 2 | 다음 지문을 읽고, 질문에 대한 정답으로 알맞은 것을 보기 A, B, C 중에 고르시오. 설명 없이 알파벳 하나만으로 대답하시오.<br><br>지문: {context}<br>질문: {question}<br>A: {a}<br>B: {b}<br>C: {c}<br>정답: | 보기 중 답을 찾을 수 없음 |
+| 3 | 주어진 내용을 고려하여, 보기 a, b, c 중 질문에 대한 가장 적절한 답 하나를 고르시오. 해설 없이 알파벳 한 글자로만 답하시오.<br><br>내용: {context}<br>질문: {question}<br>a: {a}<br>b: {B}<br>c: {C}<br>답: | 주어진 정보만으로는 답을 알 수 없음 |
+| 4 | 주어진 문장을 읽고, 알맞은 답을 보기 a, b, c 중에서 선택하시오. 단, 설명 없이 알파벳으로만 답하시오.<br><br>지문: {context}<br>질문: {question}<br>a: {a}<br>b: {b}<br>c: {c}<br>답: | 정답 없음 |
+| 5 | 아래를 읽고, 보기에서 알맞은 답을 알파벳 하나로만 답하시오.<br><br>지문: {context}<br>질문: {question}<br>보기:(A) {a}<br>(B) {b}<br>(C) {c}<br>답: | 답을 확정할 수 없음 |
 
 ## Pre-process
 ```
