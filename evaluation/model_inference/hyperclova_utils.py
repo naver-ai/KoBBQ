@@ -24,11 +24,11 @@ def get_hyperclova_response(
     assert model_name in HYPERCLOVA_MODEL
     
     data = {
+        'text_batch': text,
         'greedy': greedy,
         'max_tokens': max_tokens,
         'recompute': False,
-        'repeat_penalty': repeat_penalty,
-        'text': text
+        'repeat_penalty': repeat_penalty
     }
     if not greedy:
         data['temperature'] = temperature
@@ -50,8 +50,9 @@ def get_hyperclova_response(
                 time.sleep(5)
                 n_try += 1
                 continue
-                
-            results = response.json()['text'].strip().replace(data['text'], '')
+            
+            outputs = response.json()['results']
+            results = [output['text'].strip().replace(prompt, '') for output, prompt in zip(outputs, data['text_batch'])]
             break
 
         except KeyboardInterrupt:

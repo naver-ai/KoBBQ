@@ -18,9 +18,10 @@ from model_inference.hyperclova_utils import HYPERCLOVA_MODEL, get_hyperclova_re
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--data-path', type=str, required=True)
-    parser.add_argument('--model-names', type=str, required=True)
+    parser.add_argument('--model-name', type=str, required=True)
     parser.add_argument('--output-dir', type=str, default='outputs')
     parser.add_argument('--max-tokens', type=int, default=30)
+    parser.add_argument('--batch_size', type=int, default=1)
     args = parser.parse_args()
     return args
 
@@ -34,61 +35,60 @@ if __name__ == "__main__":
     data_path = Path(args.data_path)
     topic = data_path.name.replace('.json', '')
     print(topic)
+    
+    model_name = args.model_name
+    if args.batch_size != 1 and model_name not in ['clova-x']:
+        raise NotImplementedError
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    models_to_eval = args.model_names.split(',')
+    data = json.load(open(data_path, 'r', encoding='utf-8'))
+    prefix = data['prefix']
 
-    for model_name in models_to_eval:
-        accuracies = []
+    output_path = output_dir / f'{topic}_{model_name}_predictions.tsv'
+    if output_path.is_file():
+        print(f'Continue on {output_path}')
+        done_ids = pd.read_csv(output_dir / f'{topic}_{model_name}_predictions.tsv', sep='\t')['guid'].to_list()
+    else:
+        done_ids = []
+        with open(output_dir / f'{topic}_{model_name}_predictions.tsv', 'w', encoding='utf-8') as f:
+            writer = csv.writer(f, delimiter='\t')
+            writer.writerow(['time', 'topic', 'guid', 'truth', 'raw'])
 
-        data = json.load(open(data_path, 'r', encoding='utf-8'))
-        prefix = data['prefix']
+    for i in tqdm(range(0, len(data['data']), args.batch_size), desc=model_name):
+        # instance: prompt, A, B, C, truth, guid
+        instances = [data['data'][j] for j in range(i, min(i + args.batch_size, len(data['data']))) if data['data'][j][-1] not in done_ids]
 
-        output_path = output_dir / f'{topic}_{model_name}_predictions.tsv'
-        if output_path.is_file():
-            print(f'Continue on {output_path}')
-            done_ids = pd.read_csv(output_dir / f'{topic}_{model_name}_predictions.tsv', sep='\t')['guid'].to_list()
+        if not instances:
+            continue
+
+        prompt = [prefix + instance[0] for instance in instances]
+
+        if model_name in GPT_MODEL:
+            result = [get_gpt_response(
+                prompt[0],
+                model_name,
+                max_tokens=args.max_tokens,
+                greedy=True
+            )]
+        elif model_name in HYPERCLOVA_MODEL:
+            result = get_hyperclova_response(
+                prompt,
+                model_name,
+                max_tokens=args.max_tokens,
+                greedy=True
+            )
+        elif model_name in CLAUDE_MODEL:
+            result = [get_claude_response(
+                prompt[0],
+                model_name,
+                max_tokens=args.max_tokens
+            )]
         else:
-            done_ids = []
-            with open(output_dir / f'{topic}_{model_name}_predictions.tsv', 'w', encoding='utf-8') as f:
-                writer = csv.writer(f, delimiter='\t')
-                writer.writerow(['time', 'topic', 'guid', 'truth', 'raw'])
+            raise ValueError(model_name)
 
-        for idx, instance in enumerate(tqdm(data['data'], desc=model_name)):
-            # instance: prompt, A, B, C, truth, guid
-            if instance[-1] in done_ids:
-                continue
-
-            prompt = prefix + instance[0]
-
-            if model_name in GPT_MODEL:
-                result = get_gpt_response(
-                    prompt,
-                    model_name,
-                    max_tokens=args.max_tokens,
-                    greedy=True
-                )
-            elif model_name in HYPERCLOVA_MODEL:
-                result = get_hyperclova_response(
-                    prompt,
-                    model_name,
-                    max_tokens=args.max_tokens,
-                    greedy=True
-                )
-            elif model_name in CLAUDE_MODEL:
-                result = get_claude_response(
-                    prompt,
-                    model_name,
-                    max_tokens=args.max_tokens
-                )
-            else:
-                raise ValueError(model_name)
-                
-            if result is None:
-                raise Exception("Model Inference Fail")
-
+        for i, instance in enumerate(instances):
             open_trial = 0
             while True:
                 if open_trial >= 10:
@@ -97,7 +97,7 @@ if __name__ == "__main__":
                 try:
                     with open(output_dir / f"{topic}_{model_name}_predictions.tsv", "a", encoding="utf-8") as f:
                         writer = csv.writer(f, delimiter='\t')
-                        writer.writerow([datetime.now(), topic, instance[-1], instance[-2], result])
+                        writer.writerow([datetime.now(), topic, instance[-1], instance[-2], result[i]])
                     break
                 except KeyboardInterrupt:
                     raise Exception("Keyboard Interrupt")
@@ -106,5 +106,5 @@ if __name__ == "__main__":
                     open_trial += 1
                     continue
 
-        print(f"{topic} - {model_name} done")
+    print(f"{topic} - {model_name} done")
     
