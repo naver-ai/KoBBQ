@@ -25,13 +25,13 @@ done
 
 ## Model Inference
 ```
-MODELS=$1
+MODEL=$1
 PROMPT_ID=$2
 
 python3 2_model_inference.py \
     --data-path data/KoBBQ_test/KoBBQ_test_evaluation_$PROMPT_ID.json \
     --output-dir outputs/raw/KoBBQ_test_$PROMPT_ID \
-    --model-names $MODELS
+    --model-name $MODEL
 ```
 
 ## Post-process
