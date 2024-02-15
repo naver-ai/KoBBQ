@@ -2,6 +2,7 @@ import os
 import re
 import csv
 import json
+import torch
 import argparse
 import numpy as np
 import pandas as pd
@@ -13,7 +14,7 @@ from datetime import datetime
 from model_inference.openai_utils import GPT_MODEL, get_gpt_response
 from model_inference.claude_utils import CLAUDE_MODEL, get_claude_response
 from model_inference.hyperclova_utils import HYPERCLOVA_MODEL, get_hyperclova_response
-
+from model_inference.koalpaca_utils import KOALPACA_MODEL, load_koalpaca, get_koalpaca_response
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -21,7 +22,7 @@ def parse_args():
     parser.add_argument('--model-name', type=str, required=True)
     parser.add_argument('--output-dir', type=str, default='outputs')
     parser.add_argument('--max-tokens', type=int, default=30)
-    parser.add_argument('--batch_size', type=int, default=1)
+    parser.add_argument('--batch-size', type=int, default=1)
     args = parser.parse_args()
     return args
 
@@ -37,8 +38,13 @@ if __name__ == "__main__":
     print(topic)
     
     model_name = args.model_name
-    if args.batch_size != 1 and model_name not in ['clova-x']:
+
+    if args.batch_size != 1 and model_name not in ['clova-x', 'KoAlpaca-Polyglot-12.8B']:
         raise NotImplementedError
+
+    koalpaca = None
+    if model_name in KOALPACA_MODEL: # run with GPU
+        koalpaca = load_koalpaca(model_name)
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -85,6 +91,14 @@ if __name__ == "__main__":
                 model_name,
                 max_tokens=args.max_tokens
             )]
+        elif model_name in KOALPACA_MODEL:
+            result = get_koalpaca_response(
+                prompt,
+                model_name,
+                koalpaca,
+                max_tokens=args.max_tokens,
+                batch_size=args.batch_size
+            )
         else:
             raise ValueError(model_name)
 
