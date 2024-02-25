@@ -31,8 +31,37 @@ This is the official repository of [KoBBQ: Korean Bias Benchmark for Question An
 
 
 ## How to Evaluate
-[KoBBQ/evaluation](./evaluation)
+### With Evaluation Set
+1. Put model outputs to ``prediction`` column in [KoBBQ/data/KoBBQ_test_samples.tsv](./data/KoBBQ_test_samples.tsv) and save the file as ``KoBBQ/evaluation/outputs/KoBBQ_test/KoBBQ_test_evaluation_1_{$MODEL}.tsv``.
+    - The model outputs should be one of the choices (as in ``choices`` column). Otherwise, they will be regarded as <em>out-of-choice</em> answers.
+2. Run [KoBBQ/evaluation/5_evaluation.py](./evaluation/5_evaluation.py) with ``test`` option.
+    ```bash
+    cd evaluation
+    python3 5_evaluation.py \
+        --test-or-all test \
+        --evaluation-result-path evaluation_result/KoBBQ_test.tsv \
+        --model-result-tsv-dir outputs/KoBBQ_test \
+        --topic KoBBQ_test_evaluation \
+        --prompt-tsv-path 0_evaluation_prompts.tsv \
+        --prompt-id 1 \
+        --models $MODEL
+    ```
 
+### With Entire Set
+1. Put model outputs to ``prediction`` column in [KoBBQ/data/KoBBQ_all_samples.tsv](./data/KoBBQ_all_samples.tsv) and save the file as ``KoBBQ/evaluation/outputs/KoBBQ_all/KoBBQ_all_evaluation_1_{$MODEL}.tsv``.
+    - The model outputs should be one of the choices (as in ``choices`` column). Otherwise, they will be regarded as <em>out-of-choice</em> answers.
+2. Run [KoBBQ/evaluation/5_evaluation.py](./evaluation/5_evaluation.py) with ``all`` option.
+    ```bash
+    cd evaluation
+    python3 5_evaluation.py \
+        --test-or-all all \
+        --evaluation-result-path evaluation_result/KoBBQ_all.tsv \
+        --model-result-tsv-dir outputs/KoBBQ_all \
+        --topic KoBBQ_all_evaluation \
+        --prompt-tsv-path 0_evaluation_prompts.tsv \
+        --prompt-id 1 \
+        --models $MODEL
+    ```
 
 ## Ethical Considerations
 - We do not condone any malicious use of our dataset. It must not be used as training data to automatically generate and publish biased languages targeting specific groups. We strongly encourage researchers and practitioners to utilize this dataset in beneficial ways, such as mitigating bias
