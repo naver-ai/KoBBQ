@@ -31,6 +31,8 @@ This is the official repository of [KoBBQ: Korean Bias Benchmark for Question An
 
 
 ## How to Evaluate
+- Our evaluation codes and prompts can be found in [KoBBQ/evaluation](./evaluation).
+
 ### With Evaluation Set
 1. Put model outputs to ``prediction`` column in [KoBBQ/data/KoBBQ_test_samples.tsv](./data/KoBBQ_test_samples.tsv) and save the file as ``KoBBQ/evaluation/outputs/KoBBQ_test/KoBBQ_test_evaluation_1_{$MODEL}.tsv``.
     - The model outputs should be one of the choices (as in ``choices`` column). Otherwise, they will be regarded as <em>out-of-choice</em> answers.
