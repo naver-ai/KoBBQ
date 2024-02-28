@@ -12,3 +12,27 @@
 ### KoBBQ_test_samples.tsv
 - Test set of ``KoBBQ_all_samples.tsv``.
 - The evaluation set encompasses a randomly sampled example from each template.
+
+---
+### Data Description
+
+- **``sample_id``**: (**category**) - (**ID & version**) - (**context**, **amb**: ambiguous / **dis**: disambiguated) - (**question_answer**, **bsd**: biased / **cnt**: counter-based)
+- **``label_annotation``**: Categorization of BBQ templates 
+  - **SR**: Sample-Removed
+  - **TM**: Target-Modified
+  - **ST**: Simply-Transferred
+  - **NC**: Newly-Created
+- **``context``**:  A scenario where two individuals from different social groups engage in behavior related to the given stereotype
+- **``question``**: 
+  - A biased question asks which group conforms to a given stereotype
+  - A counter-biased question asks which group goes against it
+
+- **``choices``**: related social group options for the given context
+
+- **``biased_answer``**: answers conforming to social biases
+
+- **``answer``**: The correct answer for given context and question
+
+- **``bbq_id``**: The ID of the original sample in the BBQ dataset
+
+- **``bbq_category``**: The category of the original sample in the BBQ dataset
