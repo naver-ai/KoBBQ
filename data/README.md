@@ -27,9 +27,9 @@
   - A biased question asks which group conforms to a given stereotype
   - A counter-biased question asks which group goes against it
 
-- **``choices``**: related social group options for the given context
+- **``choices``**: Related social group options for the given context
 
-- **``biased_answer``**: answers conforming to social biases
+- **``biased_answer``**: The answer conforming to social biases
 
 - **``answer``**: The correct answer for given context and question
 
