@@ -17,12 +17,15 @@
 ### Data Description
 
 - **``sample_id``**: (**category**) - (**ID & version**) - (**context**, **amb**: ambiguous / **dis**: disambiguated) - (**question_answer**, **bsd**: biased / **cnt**: counter-based)
+
 - **``label_annotation``**: Categorization of BBQ templates 
   - **SR**: Sample-Removed
   - **TM**: Target-Modified
   - **ST**: Simply-Transferred
   - **NC**: Newly-Created
+
 - **``context``**:  A scenario where two individuals from different social groups engage in behavior related to the given stereotype
+
 - **``question``**: 
   - A biased question asks which group conforms to a given stereotype
   - A counter-biased question asks which group goes against it
@@ -36,3 +39,5 @@
 - **``bbq_id``**: The ID of the original sample in the BBQ dataset
 
 - **``bbq_category``**: The category of the original sample in the BBQ dataset
+
+- **``prediction``**: Model output to be evaluated (not filled)
