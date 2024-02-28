@@ -35,17 +35,23 @@ done
 
 ## Model Inference
 - [2_model_inference.py](./2_model_inference.py) runs inference and saves the predictions to a tsv file. We implement the inference codes for the following models.
-    - Claude-v1 (``cluade-instant-1.2``)
-    - Claude-v2 (``claude-2.0``)
-    - GPT-3.5 (``gpt-3.5-turbo-0613``)
-    - GPT-4 (``gpt-4-0613``)
+    - Claude-v1 (``cluade-instant-1.2``), Claude-v2 (``claude-2.0``)
+      ```bash
+      export CLAUDE=$CLAUDE_API_KEY
+      ```
+    - GPT-3.5 (``gpt-3.5-turbo-0613``), GPT-4 (``gpt-4-0613``)
+      ```bash
+      export OPENAI_ORG=$OPENAI_ORGANIZATION_ID
+      export OPENAI=$OPENAI_API_KEY
+      ```
     - CLOVA-X
+      ```bash
+      export CLOVA_URL=$CLOVAX_ENDPOINT
+      export CLOVA=$CLOVAX_API_KEY
+      ```
     - KoAlpaca (``KoAlpaca-Polyglot-12.8B``)
 
 ```bash
-MODEL=$1
-PROMPT_ID=$2
-
 python3 2_model_inference.py \
     --data-path data/KoBBQ_test/KoBBQ_test_evaluation_$PROMPT_ID.json \
     --output-dir outputs/raw/KoBBQ_test_$PROMPT_ID \
