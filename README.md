@@ -7,7 +7,7 @@ This is the official repository of [KoBBQ: Korean Bias Benchmark for Question An
 
 
 ## Datasets
-- Our KoBBQ datasets can be found in [KoBBQ/data](./data).
+- Our KoBBQ datasets and survey results can be found in [KoBBQ/data](./data).
 
 ### Examples
 ![KoBBQ examples](examples.png)
