@@ -74,4 +74,361 @@
   > 〇 한국 사회에 관련된 고정관념 없음
   
 ### Demographic Statistics
-- TBA
+<table>
+  <thead>
+    <tr>
+      <th>Gender</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Male</td>
+      <td align="right">800</td>
+      <td align="right">50.0%</td>
+    </tr>
+    <tr>
+      <td>Female</td>
+      <td align="right">800</td>
+      <td align="right">50.0%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Age</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>18-24</td>
+      <td align="right">320</td>
+      <td align="right">20.0%</td>
+    </tr>
+    <tr>
+      <td>25-34</td>
+      <td align="right">320</td>
+      <td align="right">20.0%</td>
+    </tr>
+    <tr>
+      <td>35-44</td>
+      <td align="right">320</td>
+      <td align="right">20.0%</td>
+    </tr>
+    <tr>
+      <td>45-54</td>
+      <td align="right">320</td>
+      <td align="right">20.0%</td>
+    </tr>
+    <tr>
+      <td>55+</td>
+      <td align="right">320</td>
+      <td align="right">20.0%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Domestic Area of Origin</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Seoul</td>
+      <td align="right">468</td>
+      <td align="right">29.3%</td>
+    </tr>
+    <tr>
+      <td>Gyeonggi, Incheon</td>
+      <td align="right">350</td>
+      <td align="right">21.9%</td>
+    </tr>
+    <tr>
+      <td>Gyeongsang, Daegu, Busan, Ulsan</td>
+      <td align="right">411</td>
+      <td align="right">25.7%</td>
+    </tr>
+    <tr>
+      <td>Jeolla, Gwangju</td>
+      <td align="right">151</td>
+      <td align="right">9.4%</td>
+    </tr>
+    <tr>
+      <td>Chungcheong, Daejeon, Sejong</td>
+      <td align="right">156</td>
+      <td align="right">9.8%</td>
+    </tr>
+    <tr>
+      <td>Gangwon</td>
+      <td align="right">48</td>
+      <td align="right">3.0%</td>
+    </tr>
+    <tr>
+      <td>Jeju</td>
+      <td align="right">16</td>
+      <td align="right">1.0%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Level of Education</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Below high school level</td>
+      <td align="right">29</td>
+      <td align="right">1.8%</td>
+    </tr>
+    <tr>
+      <td>High school graduate or equivalent</td>
+      <td align="right">378</td>
+      <td align="right">23.6%</td>
+    </tr>
+    <tr>
+      <td>College dropout</td>
+      <td align="right">45</td>
+      <td align="right">2.8%</td>
+    </tr>
+    <tr>
+      <td>Associate degree</td>
+      <td align="right">209</td>
+      <td align="right">13.1%</td>
+    </tr>
+    <tr>
+      <td>Bachelor's degree</td>
+      <td align="right">808</td>
+      <td align="right">50.5%</td>
+    </tr>
+    <tr>
+      <td>Graduate degree</td>
+      <td align="right">131</td>
+      <td align="right">8.2%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Sexual Orientation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Straight</td>
+      <td align="right">1474</td>
+      <td align="right">92.1%</td>
+    </tr>
+    <tr>
+      <td>LGBTQ+</td>
+      <td align="right">31</td>
+      <td align="right">1.9%</td>
+    </tr>
+    <tr>
+      <td>Prefer not to mention</td>
+      <td align="right">95</td>
+      <td align="right">6.0%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Disability</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>No</td>
+      <td align="right">1508</td>
+      <td align="right">94.3%</td>
+    </tr>
+    <tr>
+      <td>Yes</td>
+      <td align="right">64</td>
+      <td align="right">4.0%</td>
+    </tr>
+    <tr>
+      <td>Prefer not to mention</td>
+      <td align="right">28</td>
+      <td align="right">1.8%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Religion</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Christian</td>
+      <td align="right">275</td>
+      <td align="right">17.2%</td>
+    </tr>
+    <tr>
+      <td>Catholic</td>
+      <td align="right">122</td>
+      <td align="right">7.6%</td>
+    </tr>
+    <tr>
+      <td>Buddhist</td>
+      <td align="right">182</td>
+      <td align="right">11.4%</td>
+    </tr>
+    <tr>
+      <td>Islamic</td>
+      <td align="right">1</td>
+      <td align="right">0.1%</td>
+    </tr>
+    <tr>
+      <td>No religion</td>
+      <td align="right">979</td>
+      <td align="right">61.2%</td>
+    </tr>
+    <tr>
+      <td>Prefer not to mention</td>
+      <td align="right">41</td>
+      <td align="right">2.6%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Political Orientation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Conservative</td>
+      <td align="right">223</td>
+      <td align="right">13.9%</td>
+    </tr>
+    <tr>
+      <td>Progressive</td>
+      <td align="right">314</td>
+      <td align="right">19.6%</td>
+    </tr>
+    <tr>
+      <td>Moderate</td>
+      <td align="right">903</td>
+      <td align="right">56.4%</td>
+    </tr>
+    <tr>
+      <td>Prefer not to mention</td>
+      <td align="right">160</td>
+      <td align="right">10.0%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Marital Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>No</td>
+      <td align="right">795</td>
+      <td align="right">49.7%</td>
+    </tr>
+    <tr>
+      <td>Yes</td>
+      <td align="right">805</td>
+      <td align="right">50.3%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Employment Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Employed - less than 40h/week</td>
+      <td align="right">361</td>
+      <td align="right">22.6%</td>
+    </tr>
+    <tr>
+      <td>Employed - more than 40h/week</td>
+      <td align="right">748</td>
+      <td align="right">46.8%</td>
+    </tr>
+    <tr>
+      <td>Unemployed - Seeking employment</td>
+      <td align="right">182</td>
+      <td align="right">11.4%</td>
+    </tr>
+    <tr>
+      <td>Unemployed - Not seeking employment</td>
+      <td align="right">249</td>
+      <td align="right">15.6%</td>
+    </tr>
+    <tr>
+      <td>Retired</td>
+      <td align="right">54</td>
+      <td align="right">3.4%</td>
+    </tr>
+    <tr>
+      <td>Disabled - Unable to work</td>
+      <td align="right">6</td>
+      <td align="right">0.4%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Annual Income</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Below 13 million KRW</td>
+      <td align="right">139</td>
+      <td align="right">8.7%</td>
+    </tr>
+    <tr>
+      <td>13 million-30 million KRW</td>
+      <td align="right">249</td>
+      <td align="right">15.6%</td>
+    </tr>
+    <tr>
+      <td>30 million-50 million KRW</td>
+      <td align="right">447</td>
+      <td align="right">27.9%</td>
+    </tr>
+    <tr>
+      <td>50 million-76 million KRW</td>
+      <td align="right">374</td>
+      <td align="right">23.4%</td>
+    </tr>
+    <tr>
+      <td>76 million-150 million KRW</td>
+      <td align="right">355</td>
+      <td align="right">22.2%</td>
+    </tr>
+    <tr>
+      <td>150+ million KRW</td>
+      <td align="right">36</td>
+      <td align="right">2.3%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th align="right">1600</th>
+      <th align="right">100%</th>
+    </tr>
+    </thead>
+</table>
