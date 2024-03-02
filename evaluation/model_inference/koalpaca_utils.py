@@ -1,3 +1,9 @@
+'''
+KoBBQ
+Copyright (c) 2024-present NAVER Cloud Corp.
+MIT license
+'''
+
 import torch
 from tqdm.auto import tqdm
 from transformers import pipeline
