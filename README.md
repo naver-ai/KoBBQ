@@ -68,3 +68,20 @@ This is the official repository of [KoBBQ: Korean Bias Benchmark for Question An
 ## Ethical Considerations
 - We do not condone any malicious use of our dataset. It must not be used as training data to automatically generate and publish biased languages targeting specific groups. We strongly encourage researchers and practitioners to utilize this dataset in beneficial ways, such as mitigating bias
 in language models.
+
+## BibTex
+```
+@article{10.1162/tacl_a_00661,
+    author = {Jin, Jiho and Kim, Jiseon and Lee, Nayeon and Yoo, Haneul and Oh, Alice and Lee, Hwaran},
+    title = "{KoBBQ: Korean Bias Benchmark for Question Answering}",
+    journal = {Transactions of the Association for Computational Linguistics},
+    volume = {12},
+    pages = {507-524},
+    year = {2024},
+    month = {05},
+    issn = {2307-387X},
+    doi = {10.1162/tacl_a_00661},
+    url = {https://doi.org/10.1162/tacl_a_00661},
+    eprint = {https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00661/2369542/tacl_a_00661.pdf}
+}
+```
